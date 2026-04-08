@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sites profissionais, rápidos e focados em conversão para empresas locais. Agência web premium."
+    />
+    <title>Agência Sant'Anna — Sites que convertem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo</a>
+
+    <header class="header" data-header>
+      <div class="container header__inner">
+        <a class="logo" href="#inicio" aria-label="Agência Sant'Anna — Início">
+          <span class="logo__mark">Agência Sant'Anna</span>
+          <span class="logo__tag">Digital Agency</span>
+        </a>
+        <nav class="nav" aria-label="Principal">
+          <a class="nav__link" href="#inicio">Início</a>
+          <a class="nav__link" href="#servicos">Serviços</a>
+          <a class="nav__link" href="#portfolio">Projetos</a>
+          <a class="nav__link" href="#contato">Contato</a>
+        </nav>
+        <a
+          class="btn btn--sm btn--primary header__cta"
+          href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20um%20site%20profissional."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Falar no WhatsApp
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menu-mobile"
+          data-menu-toggle
+        >
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-drawer" id="menu-mobile" data-mobile-drawer hidden>
+      <nav class="mobile-drawer__nav" aria-label="Mobile">
+        <a class="mobile-drawer__link" href="#inicio" data-close-drawer>Início</a>
+        <a class="mobile-drawer__link" href="#servicos" data-close-drawer>Serviços</a>
+        <a class="mobile-drawer__link" href="#portfolio" data-close-drawer>Projetos</a>
+        <a class="mobile-drawer__link" href="#contato" data-close-drawer>Contato</a>
+        <a
+          class="btn btn--primary mobile-drawer__cta"
+          href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20um%20site%20profissional."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
+        </a>
+      </nav>
+    </div>
+
+    <main id="conteudo-principal">
+      <!-- HERO -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero__canvas-wrap" id="hero-canvas-wrap" aria-hidden="true"></div>
+        <div class="hero__gradient" aria-hidden="true"></div>
+        <div class="container hero__content">
+          <img
+            class="hero__logo-mobile"
+            data-animate="hero-logo"
+            src="img/logo.png"
+            alt="Logo da Agência Sant'Anna"
+            width="160"
+            height="160"
+            loading="eager"
+            decoding="async"
+          />
+          <p class="hero__eyebrow" data-animate="hero-eyebrow">Agência web premium</p>
+          <h1 class="hero__title" id="hero-title" data-animate="hero-title">
+            Sites profissionais que ajudam sua empresa a atrair mais clientes online.
+          </h1>
+          <p class="hero__lead" data-animate="hero-lead">
+            Desenvolvemos sites rápidos, modernos e focados em conversão para empresas locais.
+          </p>
+          <div class="hero__actions" data-animate="hero-cta">
+            <a
+              class="btn btn--primary btn--lg"
+              href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20um%20site%20profissional."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Falar no WhatsApp</span>
+              <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M7 17L17 7M17 7H9M17 7V15"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#portfolio">
+              <span>Ver projetos</span>
+            </a>
+          </div>
+          <ul class="hero__metrics" data-animate="hero-metrics" aria-label="Indicadores de credibilidade">
+            <li class="metric">
+              <span class="metric__value" data-count-to="50" data-prefix="+">+50</span>
+              <span class="metric__label">projetos entregues</span>
+            </li>
+            <li class="metric">
+              <span class="metric__value" data-count-to="100" data-suffix="%">100%</span>
+              <span class="metric__label">foco em performance</span>
+            </li>
+            <li class="metric">
+              <span class="metric__value metric__value--fixed">24/7</span>
+              <span class="metric__label">suporte humano</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TRUST -->
+      <section class="section trust" id="confianca" aria-labelledby="trust-title">
+        <div class="container">
+          <header class="section__head">
+            <p class="section__eyebrow" data-reveal>Sites feitos</p>
+            <h2 class="section__title" id="trust-title" data-reveal>Projetos que impressionam e convertem</h2>
+            <p class="section__subtitle" data-reveal>
+              Prévias reais de sites pensados para negócios locais — velocidade, clareza e credibilidade desde o primeiro
+              scroll.
+            </p>
+          </header>
+          <div class="trust__grid" data-stagger>
+            <article class="project-card project-card--link">
+              <a
+                class="project-card__link"
+                href="https://juliobarbershop.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="project-card__media">
+                  <img
+                    src="img/barber.png"
+                    alt="Prévia do site Julio Barber Shop"
+                    width="640"
+                    height="400"
+                    loading="lazy"
+                  />
+                  <span class="project-card__shade" aria-hidden="true"></span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">Julio Barber Shop</h3>
+                  <p class="project-card__desc">Identidade forte, serviços e contato direto para agendamento.</p>
+                  <span class="project-card__cta">
+                    Ver site
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 17L17 7M17 7H9M17 7V15"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </article>
+            <article class="project-card project-card--link">
+              <a
+                class="project-card__link"
+                href="https://perolabeautyhome.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="project-card__media">
+                  <img
+                    src="img/perola.png"
+                    alt="Prévia do site Perola Beauty Home"
+                    width="640"
+                    height="400"
+                    loading="lazy"
+                  />
+                  <span class="project-card__shade" aria-hidden="true"></span>
+                </div>
+                <div class="project-card__body">
+                  <h3 class="project-card__title">Perola Beauty Home</h3>
+                  <p class="project-card__desc">Visual premium, serviços em destaque e conversão para WhatsApp.</p>
+                  <span class="project-card__cta">
+                    Ver site
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M7 17L17 7M17 7H9M17 7V15"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section services" id="servicos" aria-labelledby="services-title">
+        <div class="container">
+          <header class="section__head section__head--split">
+            <div>
+              <p class="section__eyebrow" data-reveal>Serviços</p>
+              <h2 class="section__title" id="services-title" data-reveal>Tudo o que você precisa para vender online</h2>
+            </div>
+            <p class="section__subtitle section__subtitle--narrow" data-reveal>
+              Arquitetura de informação, design e desenvolvimento em um fluxo único — menos fricção, mais resultado.
+            </p>
+          </header>
+          <div class="services__grid" data-stagger-cards>
+            <article class="service-card" data-tilt>
+              <div class="service-card__icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 19h16M5 19V5l7-2 7 2v14"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M9 10h6M9 14h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="service-card__title">Criação de sites profissionais</h3>
+              <p class="service-card__text">
+                Experiência completa: identidade visual aplicada, conteúdo estruturado e performance auditada.
+              </p>
+            </article>
+            <article class="service-card" data-tilt>
+              <div class="service-card__icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M7 8h4M7 12h10M7 16h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="service-card__title">Landing pages</h3>
+              <p class="service-card__text">
+                Páginas de alta conversão para campanhas, lançamentos e captação de leads qualificados.
+              </p>
+            </article>
+            <article class="service-card" data-tilt>
+              <div class="service-card__icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V7l8-4z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+              <h3 class="service-card__title">Sites institucionais para empresas</h3>
+              <p class="service-card__text">
+                Presença sólida que transmite autoridade: equipe, diferenciais e contato em poucos cliques.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- NICHES -->
+      <section class="section niches" id="nichos" aria-labelledby="niches-title">
+        <div class="container">
+          <header class="section__head">
+            <p class="section__eyebrow" data-reveal>Segmentos</p>
+            <h2 class="section__title" id="niches-title" data-reveal>Onde entregamos o maior impacto</h2>
+            <p class="section__subtitle" data-reveal>
+              Modelos testados para negócios locais — do primeiro contato ao agendamento.
+            </p>
+          </header>
+          <div class="niches__grid" data-stagger-niches>
+            <article class="niche-card">
+              <span class="niche-card__index">01</span>
+              <h3 class="niche-card__title">Clínicas</h3>
+              <p class="niche-card__text">Credibilidade médica, SEO local e jornada de paciente simplificada.</p>
+            </article>
+            <article class="niche-card">
+              <span class="niche-card__index">02</span>
+              <h3 class="niche-card__title">Salões de beleza</h3>
+              <p class="niche-card__text">Portfólio visual, pacotes e reservas via WhatsApp.</p>
+            </article>
+            <article class="niche-card">
+              <span class="niche-card__index">03</span>
+              <h3 class="niche-card__title">Barbearias</h3>
+              <p class="niche-card__text">Agenda, preços e estilo de marca com atitude.</p>
+            </article>
+            <article class="niche-card">
+              <span class="niche-card__index">04</span>
+              <h3 class="niche-card__title">Restaurantes</h3>
+              <p class="niche-card__text">Cardápio digital, localização e pedidos rápidos.</p>
+            </article>
+            <article class="niche-card niche-card--wide">
+              <span class="niche-card__index">05</span>
+              <h3 class="niche-card__title">Academias</h3>
+              <p class="niche-card__text">Planos, horários e conversão para matrícula ou aula experimental.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="section process" id="processo" aria-labelledby="process-title">
+        <div class="container">
+          <header class="section__head section__head--split">
+            <div>
+              <p class="section__eyebrow" data-reveal>Como funciona</p>
+              <h2 class="section__title" id="process-title" data-reveal>Um processo enxuto, sem enrolação</h2>
+            </div>
+            <p class="section__subtitle section__subtitle--narrow" data-reveal>
+              Transparência em cada etapa — você acompanha evolução, aprovações e prazos com calendário claro.
+            </p>
+          </header>
+          <ol class="process__steps" data-process>
+            <li class="step">
+              <span class="step__num">1</span>
+              <div class="step__body">
+                <h3 class="step__title">Conversamos sobre sua empresa</h3>
+                <p class="step__text">Entendemos público, oferta, diferenciais e objetivos de conversão.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__num">2</span>
+              <div class="step__body">
+                <h3 class="step__title">Criamos o design do seu site</h3>
+                <p class="step__text">Protótipo refinado, copy estruturada e UI alinhada à sua marca.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__num">3</span>
+              <div class="step__body">
+                <h3 class="step__title">Seu site fica online em poucos dias</h3>
+                <p class="step__text">Publicação, métricas básicas, integrações e treinamento rápido da equipe.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="container">
+          <header class="section__head">
+            <p class="section__eyebrow" data-reveal>Portfólio</p>
+            <h2 class="section__title" id="portfolio-title" data-reveal>Templates premium prontos para escalar</h2>
+            <p class="section__subtitle" data-reveal>
+              Do wireframe ao go-live com a mesma gramática visual — rápido para lançar, fácil de evoluir.
+            </p>
+          </header>
+          <div class="portfolio__grid" data-stagger-portfolio>
+            <article class="portfolio-card">
+              <div class="portfolio-card__media">
+                <img
+                  src="img/beauty.png"
+                  alt="Prévia do site Julio Barber Shop"
+                  width="640"
+                  height="420"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-card__body">
+                <h3 class="portfolio-card__title">Template Salão de beleza</h3>
+                <p class="portfolio-card__text">Site institucional com foco em conversão para agendamentos e credibilidade da marca.</p>
+                <a
+                  class="btn btn--ghost btn--sm portfolio-card__cta"
+                  href="https://salao-de-beleza-nine.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver site
+                </a>
+              </div>
+            </article>
+            <article class="portfolio-card">
+              <div class="portfolio-card__media">
+                <img
+                  src="img/odonto.png"
+                  alt="Prévia do site Perola Beauty Home"
+                  width="640"
+                  height="420"
+                  loading="lazy"
+                />
+              </div>
+              <div class="portfolio-card__body">
+                <h3 class="portfolio-card__title">Template clínica odontológica</h3>
+                <p class="portfolio-card__text">Layout elegante para serviços de beleza, com vitrine visual e CTAs claros.</p>
+                <a
+                  class="btn btn--ghost btn--sm portfolio-card__cta"
+                  href="https://template-odontologico.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver site
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta" id="contato" aria-labelledby="cta-title">
+        <div class="cta__bg" data-cta-bg aria-hidden="true"></div>
+        <div class="container cta__inner">
+          <p class="cta__eyebrow" data-reveal-cta>E pronto para crescer?</p>
+          <h2 class="cta__title" id="cta-title" data-reveal-cta>
+            Vamos criar um site que realmente traga clientes para o seu negócio.
+          </h2>
+          <p class="cta__lead" data-reveal-cta>Resposta em até 1 dia útil. Briefing objetivo, proposta clara.</p>
+          <div data-reveal-cta>
+            <a
+              class="btn btn--primary btn--lg cta__btn"
+              href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20um%20site%20profissional."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <span class="logo logo--footer">
+            <span class="logo__mark">Agência Sant'Anna</span>
+            <span class="logo__tag">Digital Agency</span>
+          </span>
+          <p class="footer__desc">
+            Estúdio especializado em sites rápidos, elegantes e focados em conversão para marcas locais.
+          </p>
+        </div>
+        <div class="footer__links">
+          <span class="footer__label">Contato</span>
+          <a class="footer__link" href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+            >WhatsApp</a
+          >
+          <a class="footer__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p class="footer__copy">© <span data-year></span> Agência Sant'Anna. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="js/three-hero.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

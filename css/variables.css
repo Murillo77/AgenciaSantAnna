@@ -1,0 +1,124 @@
+:root {
+  /* Color — cool graphite tech */
+  --bg-deep: #060607;
+  --bg-elevated: #0d0e12;
+  --bg-card: rgba(255, 255, 255, 0.025);
+  --bg-card-hover: rgba(255, 255, 255, 0.045);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+
+  --accent: #7dd3fc;
+  --accent-soft: rgba(125, 211, 252, 0.12);
+  --accent-glow: rgba(125, 211, 252, 0.35);
+
+  --danger: #fb7185;
+
+  /* Typography */
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+
+  --text-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.45vw, 1.3rem);
+  --text-xl: clamp(1.25rem, 1.05rem + 0.65vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.1rem + 1.2vw, 2rem);
+  --text-3xl: clamp(2rem, 1.3rem + 2.2vw, 3.1rem);
+  --text-hero: clamp(2.4rem, 1.4rem + 4.2vw, 4.9rem);
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.2;
+  --leading-body: 1.55;
+
+  --tracking-tight: -0.03em;
+  --tracking-wide: 0.12em;
+
+  /* Space */
+  --space-section: 3.75rem;
+  --space-block: 2rem;
+  --container-max: 1380px;
+  --container-gutter: 1rem;
+  --container: min(var(--container-max), calc(100% - (var(--container-gutter) * 2)));
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 180ms;
+  --dur-mid: 320ms;
+
+  --header-h: 74px;
+  --z-header: 50;
+  --z-drawer: 60;
+  --z-modal: 100;
+}
+
+/* 375px — standard phones */
+@media (min-width: 375px) {
+  :root {
+    --container-gutter: 1.15rem;
+  }
+}
+
+/* 480px — large phones */
+@media (min-width: 480px) {
+  :root {
+    --space-section: 4.25rem;
+    --space-block: 2.25rem;
+    --container-gutter: 1.25rem;
+  }
+}
+
+/* 768px — tablets */
+@media (min-width: 768px) {
+  :root {
+    --space-section: 5.25rem;
+    --space-block: 2.75rem;
+    --container-gutter: 2rem;
+    --header-h: 80px;
+  }
+}
+
+/* 1024px — small laptops */
+@media (min-width: 1024px) {
+  :root {
+    --space-section: 6rem;
+    --space-block: 3rem;
+    --container-gutter: 2.5rem;
+    --header-h: 82px;
+  }
+}
+
+/* 1280px — desktop */
+@media (min-width: 1280px) {
+  :root {
+    --space-section: 6.75rem;
+    --space-block: 3.5rem;
+    --container-gutter: 3rem;
+  }
+}
+
+/* 1440px — large desktop */
+@media (min-width: 1440px) {
+  :root {
+    --space-section: 7.5rem;
+    --space-block: 4rem;
+    --container-gutter: 3.5rem;
+  }
+}
+
+/* 1920px+ — ultrawide */
+@media (min-width: 1920px) {
+  :root {
+    --space-section: 8rem;
+    --space-block: 4.5rem;
+    --container-max: 1440px;
+    --container-gutter: 4rem;
+  }
+}
