@@ -17,9 +17,9 @@
 
   if (!viewport || slides.length === 0) return;
 
-  /** Fração do próximo card visível; no mobile card ocupa 100% */
+  /** Fração do próximo card visível; no mobile usamos ~85% de card + pequeno peek */
   function getPeek() {
-    return window.matchMedia("(max-width: 768px)").matches ? 0 : 0.45;
+    return window.matchMedia("(max-width: 768px)").matches ? 0.18 : 0.45;
   }
   var index = 0;
   var touchStartX = 0;
@@ -36,10 +36,9 @@
   function setSlideWidths() {
     var V = viewport.getBoundingClientRect().width;
     var g = gapPx();
-    var isMobile = window.matchMedia("(max-width: 768px)").matches;
     var peek = getPeek();
-    var minWidth = isMobile ? V : 240;
-    var w = isMobile ? V : Math.max(minWidth, (V - g) / (1 + peek));
+    var minWidth = window.matchMedia("(max-width: 768px)").matches ? 260 : 240;
+    var w = Math.max(minWidth, (V - g) / (1 + peek));
     slides.forEach(function (slide) {
       slide.style.flex = "0 0 " + w + "px";
     });

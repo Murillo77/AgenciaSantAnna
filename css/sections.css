@@ -438,23 +438,13 @@
 }
 
 @media (max-width: 768px) {
-  .trust-carousel {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .trust .project-card {
-    border-radius: 0;
-  }
-
   .trust-carousel__track {
-    gap: 0;
+    gap: 0.85rem;
     transition-duration: 0.45s;
   }
 
   .trust-carousel__viewport {
-    padding-inline: 0;
+    padding-inline: 0.1rem;
   }
 
   .trust .project-card__media {
