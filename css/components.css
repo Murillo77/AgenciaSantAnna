@@ -246,6 +246,24 @@
   filter: saturate(1);
 }
 
+/* Capturas mais escuras: levanta brilho e suaviza o degradê só neste card */
+.project-card--bright-preview.project-card--carousel .project-card__media img {
+  filter: saturate(0.95) brightness(1.12);
+}
+
+.project-card--bright-preview.project-card--carousel:hover .project-card__media img {
+  filter: saturate(1) brightness(1.16);
+}
+
+.project-card--bright-preview .project-card__shade {
+  opacity: 0.72;
+  background: linear-gradient(180deg, transparent 42%, rgba(6, 6, 7, 0.52) 100%);
+}
+
+.project-card--bright-preview:hover .project-card__shade {
+  opacity: 0.58;
+}
+
 /* Service cards */
 .service-card {
   padding: 2.1rem 2rem 2.15rem;
