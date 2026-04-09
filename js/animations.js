@@ -68,10 +68,10 @@
       });
     }
 
-    staggerBlocks("[data-stagger]", ".project-card");
+    staggerBlocks("[data-stagger]", ".trust-carousel__slide");
     staggerBlocks("[data-stagger-cards]", ".service-card");
     staggerBlocks("[data-stagger-niches]", ".niche-card", "top 82%");
-    staggerBlocks("[data-stagger-portfolio]", ".portfolio-card");
+    staggerBlocks("[data-stagger-portfolio]", ".trust-carousel__slide");
 
     gsap.from("[data-process] .step", {
       scrollTrigger: { trigger: "[data-process]", start: "top 76%" },
