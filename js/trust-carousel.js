@@ -17,8 +17,10 @@
 
   if (!viewport || slides.length === 0) return;
 
-  /** Fração do próximo card visível (0.4–0.5); viewport ≈ W + gap + PEEK * W */
-  var PEEK = 0.45;
+  /** Fração do próximo card visível; no mobile card ocupa 100% */
+  function getPeek() {
+    return window.matchMedia("(max-width: 768px)").matches ? 0 : 0.45;
+  }
   var index = 0;
   var touchStartX = 0;
   var touchMoved = false;
@@ -34,7 +36,10 @@
   function setSlideWidths() {
     var V = viewport.getBoundingClientRect().width;
     var g = gapPx();
-    var w = Math.max(240, (V - g) / (1 + PEEK));
+    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+    var peek = getPeek();
+    var minWidth = isMobile ? V : 240;
+    var w = isMobile ? V : Math.max(minWidth, (V - g) / (1 + peek));
     slides.forEach(function (slide) {
       slide.style.flex = "0 0 " + w + "px";
     });
