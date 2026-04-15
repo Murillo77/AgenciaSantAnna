@@ -267,7 +267,7 @@
 
 /* Largura dos slides definida em JS (2/3 do viewport) para peek estável do próximo card */
 .trust-carousel__slide {
-  flex: 0 0 auto;
+  flex: 0 0 clamp(260px, 62vw, 520px);
   min-width: 0;
 }
 
