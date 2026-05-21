@@ -9,7 +9,7 @@ body {
 }
 
 [id] {
-  scroll-margin-top: calc(var(--header-h) + 1rem);
+  scroll-margin-top: calc(var(--header-h) + 0.5rem);
 }
 
 .container {
@@ -35,7 +35,123 @@ body {
   transform: translateY(0);
 }
 
-/* Header */
+/* Marca fixa — nome e logo nos cantos opostos */
+.site-brand {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 60px 0 60px 60px;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  pointer-events: none;
+}
+
+.site-brand__name {
+  margin: 0;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 0.85rem + 0.35vw, 2.1rem);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
+  text-decoration: none;
+  line-height: 1;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.site-brand__name-strong {
+  font-weight: 700;
+}
+
+.site-brand__name-light {
+  font-weight: 400;
+}
+
+.site-brand__name:hover,
+.site-brand__name:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.site-brand__name:hover .site-brand__name-strong,
+.site-brand__name:hover .site-brand__name-light,
+.site-brand__name:focus-visible .site-brand__name-strong,
+.site-brand__name:focus-visible .site-brand__name-light {
+  color: inherit;
+}
+
+.site-brand__logo {
+  margin-right: 5px;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-mid) var(--ease-out);
+}
+
+.site-brand__logo:hover,
+.site-brand__logo:focus-visible {
+  opacity: 0.88;
+  outline: none;
+}
+
+.site-brand__logo img {
+  display: block;
+  height: clamp(64px, 11vw, 96px);
+  width: auto;
+  max-width: min(320px, 44vw);
+  object-fit: contain;
+}
+
+@media (max-width: 1023px) {
+  .site-brand {
+    width: 100%;
+    min-height: 84px;
+    padding: 16px 0 16px 16px;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+  }
+
+  .site-brand__name {
+    font-size: clamp(1.2rem, 5.2vw, 1.45rem);
+    max-width: none;
+    flex: 0 1 auto;
+  }
+
+  .site-brand__logo {
+    margin-right: 5px;
+    margin-left: auto;
+  }
+
+  .site-brand__logo img {
+    height: clamp(72px, 20vw, 96px);
+    width: auto;
+    max-width: min(280px, 62vw);
+    object-fit: contain;
+    object-position: right center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-brand {
+    padding: 60px 0 60px 60px;
+  }
+}
+
+/* Header (legado — não usado no layout atual) */
 .header {
   position: fixed;
   inset: 0 0 auto;

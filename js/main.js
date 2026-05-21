@@ -1,48 +1,11 @@
 /**
- * Lenis smooth scroll, UI chrome, micro-interactions.
+ * Lenis smooth scroll, micro-interactions.
  */
 (function () {
-  var header = document.querySelector("[data-header]");
-  var menuBtn = document.querySelector("[data-menu-toggle]");
-  var drawer = document.querySelector("[data-mobile-drawer]");
-  var closeDrawerEls = document.querySelectorAll("[data-close-drawer]");
   var yearEl = document.querySelector("[data-year]");
 
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
-  }
-
-  /* Header scroll state */
-  function onScrollDir() {
-    if (!header) return;
-    var y = window.scrollY || document.documentElement.scrollTop;
-    header.classList.toggle("is-scrolled", y > 24);
-  }
-  window.addEventListener("scroll", onScrollDir, { passive: true });
-  onScrollDir();
-
-  /* Mobile drawer */
-  function setDrawer(open) {
-    if (!drawer || !menuBtn) return;
-    drawer.hidden = !open;
-    drawer.classList.toggle("is-open", open);
-    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    document.body.style.overflow = open ? "hidden" : "";
-  }
-
-  if (menuBtn && drawer) {
-    menuBtn.addEventListener("click", function () {
-      var open = menuBtn.getAttribute("aria-expanded") !== "true";
-      setDrawer(open);
-    });
-    closeDrawerEls.forEach(function (a) {
-      a.addEventListener("click", function () {
-        setDrawer(false);
-      });
-    });
-    drawer.addEventListener("click", function (e) {
-      if (e.target === drawer) setDrawer(false);
-    });
   }
 
   /* Card tilt (subtle) */
@@ -67,7 +30,8 @@
     });
   }
 
-  /* Lenis + ScrollTrigger — rAF uses high‑resolution clock for correct deltas */
+  /* Lenis + ScrollTrigger — após splash para não competir com a animação de entrada */
+  function initLenis() {
   var LenisCtor = window.Lenis;
   if (LenisCtor && typeof ScrollTrigger !== "undefined") {
     var lenis = new LenisCtor({
@@ -78,6 +42,8 @@
       smoothWheel: true,
     });
 
+    window.__lenis = lenis;
+
     lenis.on("scroll", ScrollTrigger.update);
 
     function rafLite(time) {
@@ -85,14 +51,6 @@
       requestAnimationFrame(rafLite);
     }
     requestAnimationFrame(rafLite);
-
-    function closeDrawerFromNav() {
-      if (!drawer || !menuBtn) return;
-      drawer.hidden = true;
-      drawer.classList.remove("is-open");
-      menuBtn.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    }
 
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       var href = anchor.getAttribute("href");
@@ -102,15 +60,28 @@
       anchor.addEventListener("click", function (e) {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
         e.preventDefault();
-        var hh = header ? header.getBoundingClientRect().height + 12 : 80;
-        lenis.scrollTo(target, { offset: -hh });
-        closeDrawerFromNav();
+        var brandName = document.querySelector(".site-brand__name");
+        var offset = brandName
+          ? -(brandName.getBoundingClientRect().bottom + 16)
+          : 0;
+        lenis.scrollTo(target, { offset: offset });
       });
     });
 
-    window.addEventListener("load", function () {
-      ScrollTrigger.refresh();
-    });
+    function refreshScroll() {
+      requestAnimationFrame(function () {
+        ScrollTrigger.refresh();
+      });
+    }
+
+    window.addEventListener("load", refreshScroll);
+    window.addEventListener("splashcomplete", refreshScroll, { once: true });
+  }
+  }
+
+  if (document.body.classList.contains("is-splash-active")) {
+    window.addEventListener("splashcomplete", initLenis, { once: true });
+  } else {
+    initLenis();
   }
 })();
-

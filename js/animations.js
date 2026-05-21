@@ -2,6 +2,13 @@
  * GSAP — hero entrance, scroll reveals, staggers, micro-interactions on CTAs.
  */
 (function () {
+  function boot() {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(runAnimations);
+    });
+  }
+
+  function runAnimations() {
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
 
   gsap.registerPlugin(ScrollTrigger);
@@ -9,6 +16,64 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   gsap.defaults({ ease: "power3.out" });
+
+  function initHeroTypewriter(timeline, startTime) {
+    var title = document.querySelector("[data-hero-typewriter]");
+    if (!title) return startTime;
+
+    var lines = title.querySelectorAll(".hero__title-line");
+    var cursor = startTime;
+    var charStagger = 0.034;
+    var charDuration = 0.055;
+    var linePause = 0.2;
+
+    title.classList.add("is-typing");
+
+    lines.forEach(function (line) {
+      var text = line.textContent;
+      line.textContent = "";
+      line.style.visibility = "visible";
+      var spans = [];
+
+      for (var i = 0; i < text.length; i++) {
+        var ch = text.charAt(i);
+        var span = document.createElement("span");
+        span.className = "hero__char";
+        span.setAttribute("aria-hidden", "true");
+        span.textContent = ch === " " ? "\u00A0" : ch;
+        gsap.set(span, { opacity: 0, filter: "blur(12px)" });
+        line.appendChild(span);
+        spans.push(span);
+      }
+
+      timeline.to(
+        spans,
+        {
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: charDuration,
+          stagger: charStagger,
+          ease: "power2.out",
+        },
+        cursor
+      );
+
+      cursor += text.length * charStagger + charDuration + linePause;
+    });
+
+    timeline.call(
+      function () {
+        title.classList.remove("is-typing");
+        title.classList.add("is-typed");
+      },
+      null,
+      cursor
+    );
+
+    return cursor;
+  }
+
+  var isDesktopHero = window.matchMedia("(min-width: 768px)").matches;
 
   if (!reduced) {
     var heroTl = gsap.timeline({ delay: 0.12, defaults: { duration: 0.85 } });
@@ -21,22 +86,35 @@
       );
     }
 
-    heroTl
+    heroTl.from("[data-animate='hero-eyebrow']", { y: 18, opacity: 0, duration: 0.65 }, 0.05);
+
+    if (isDesktopHero) {
+      var typeEnd = initHeroTypewriter(heroTl, 0.2);
+
+      heroTl
+        .from("[data-animate='hero-lead']", { y: 26, opacity: 0, duration: 0.78 }, typeEnd - 0.05)
+        .from("[data-animate='hero-cta'] > *", { y: 20, opacity: 0, stagger: 0.11, duration: 0.68 }, typeEnd + 0.12);
+    } else {
+      var heroTitleMobile = document.querySelector("[data-hero-typewriter]");
+      if (heroTitleMobile) heroTitleMobile.classList.add("is-typed");
+
+      heroTl
+        .from("[data-animate='hero-lead']", { y: 26, opacity: 0, duration: 0.78 }, 0.12)
+        .from("[data-animate='hero-cta'] > *", { y: 20, opacity: 0, stagger: 0.11, duration: 0.68 }, 0.22);
+    }
+  } else {
+    var heroTitle = document.querySelector("[data-hero-typewriter]");
+    if (heroTitle) heroTitle.classList.add("is-typed");
+
+    var heroTlReduced = gsap.timeline({ delay: 0.12, defaults: { duration: 0.85 } });
+    heroTlReduced
       .from("[data-animate='hero-eyebrow']", { y: 18, opacity: 0, duration: 0.65 }, 0.05)
-      .from(
-        "[data-animate='hero-title']",
-        {
-          y: 44,
-          opacity: 0,
-          rotateX: 5,
-          transformOrigin: "50% 100%",
-          duration: 1.05,
-          ease: "power4.out",
-        },
-        0.12
-      )
+      .from("[data-animate='hero-title']", { y: 22, opacity: 0, duration: 0.78 }, 0.12)
       .from("[data-animate='hero-lead']", { y: 26, opacity: 0, duration: 0.78 }, 0.22)
       .from("[data-animate='hero-cta'] > *", { y: 20, opacity: 0, stagger: 0.11, duration: 0.68 }, 0.32);
+  }
+
+  if (!reduced) {
 
     gsap.utils.toArray("[data-reveal]").forEach(function (el) {
       gsap.from(el, {
@@ -68,10 +146,8 @@
       });
     }
 
-    staggerBlocks("[data-stagger]", ".trust-carousel__slide");
     staggerBlocks("[data-stagger-cards]", ".service-card");
     staggerBlocks("[data-stagger-niches]", ".niche-card", "top 82%");
-    staggerBlocks("[data-stagger-portfolio]", ".trust-carousel__slide");
 
     gsap.from("[data-process] .step", {
       scrollTrigger: { trigger: "[data-process]", start: "top 76%" },
@@ -212,5 +288,14 @@
     }
   }
 
-  ScrollTrigger.refresh();
+  requestAnimationFrame(function () {
+    ScrollTrigger.refresh();
+  });
+  }
+
+  if (document.body.classList.contains("is-splash-active")) {
+    window.addEventListener("splashcomplete", boot, { once: true });
+  } else {
+    boot();
+  }
 })();

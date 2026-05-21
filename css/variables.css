@@ -75,13 +75,19 @@
   }
 }
 
+/* Mobile / tablet — logo maior no header */
+@media (max-width: 1023px) {
+  :root {
+    --header-h: 108px;
+  }
+}
+
 /* 768px — tablets */
 @media (min-width: 768px) {
   :root {
     --space-section: 5.25rem;
     --space-block: 2.75rem;
     --container-gutter: 2rem;
-    --header-h: 80px;
   }
 }
 
@@ -91,7 +97,7 @@
     --space-section: 6rem;
     --space-block: 3rem;
     --container-gutter: 2.5rem;
-    --header-h: 82px;
+    --header-h: calc(60px + 3.75rem);
   }
 }
 

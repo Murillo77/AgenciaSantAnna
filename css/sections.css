@@ -38,13 +38,7 @@
 }
 
 .hero__logo-mobile {
-  display: block;
-  width: min(92vw, 400px);
-  max-width: 100%;
-  height: auto;
-  margin-inline: auto;
-  margin-bottom: 1.1rem;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+  display: none;
 }
 
 .hero__eyebrow {
@@ -64,8 +58,28 @@
   font-weight: 800;
   margin-bottom: 1.5rem;
   color: #fafafa;
-  max-width: 24ch;
-  text-wrap: balance;
+  max-width: 22ch;
+  text-wrap: normal;
+}
+
+.hero__title-line {
+  display: block;
+  min-height: 1.08em;
+}
+
+.hero__char {
+  display: inline-block;
+  will-change: filter, opacity;
+}
+
+@media (min-width: 768px) {
+  .hero__title[data-hero-typewriter]:not(.is-typed) .hero__title-line {
+    visibility: hidden;
+  }
+}
+
+.hero__title.is-typed .hero__title-line {
+  visibility: visible;
 }
 
 .hero__lead {
@@ -182,15 +196,15 @@
   }
 
   .hero__title {
-    max-width: 27ch;
+    max-width: none;
+  }
+
+  .hero__title-line {
+    white-space: nowrap;
   }
 }
 
 @media (min-width: 1024px) {
-  .hero__logo-mobile {
-    display: none;
-  }
-
   .hero__content {
     display: grid;
     grid-template-columns: minmax(0, 1.03fr) minmax(300px, 0.97fr);
@@ -233,7 +247,7 @@
   }
 
   .hero__title {
-    max-width: 30ch;
+    max-width: none;
   }
 }
 

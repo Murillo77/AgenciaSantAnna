@@ -1,8 +1,9 @@
 /**
  * Hero background: subtle particle network (Three.js r128 UMD).
- * Attached to #hero-canvas-wrap
+ * Attached to #hero-canvas-wrap — inicia após a splash para evitar travadas.
  */
 (function () {
+  function init() {
   var wrap = document.getElementById("hero-canvas-wrap");
   if (!wrap || typeof THREE === "undefined") return;
 
@@ -165,4 +166,11 @@
   }
 
   requestAnimationFrame(tick);
+  }
+
+  if (document.body.classList.contains("is-splash-active")) {
+    window.addEventListener("splashcomplete", init, { once: true });
+  } else {
+    init();
+  }
 })();
