@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://agenciasantannaweb.com.br/sitemap.xml
+Sitemap: https://www.agenciasantannaweb.com.br/sitemap.xml
