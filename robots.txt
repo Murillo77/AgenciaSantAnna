@@ -1,4 +1,10 @@
+# https://www.agenciasantannaweb.com.br/
 User-agent: *
 Allow: /
+
+# Recursos estáticos — não bloquear rastreamento de assets
+Allow: /css/
+Allow: /js/
+Allow: /img/
 
 Sitemap: https://www.agenciasantannaweb.com.br/sitemap.xml
